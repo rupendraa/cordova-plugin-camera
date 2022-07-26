@@ -1343,22 +1343,28 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
         state.putBoolean("allowEdit", this.allowEdit);
         state.putBoolean("correctOrientation", this.correctOrientation);
         state.putBoolean("saveToPhotoAlbum", this.saveToPhotoAlbum);
-
+       
+         LOG.d(LOG_TAG, "Storing data on onSaveInstanceState");
         if (this.croppedUri != null) {
             state.putString(CROPPED_URI_KEY, this.croppedUri);
         }
+           LOG.d(LOG_TAG, "croppedUri: " ); 
+           LOG.d(LOG_TAG, this.croppedUri); 
         if (this.croppedFilePath != null) {
             state.putString(CROPPED_FILE_PATH_KEY, this.croppedFilePath);
         }
-
+     LOG.d(LOG_TAG, "croppedFilePath: " ); 
+           LOG.d(LOG_TAG, this.croppedFilePath); 
         if (this.imageUri != null) {
             state.putString(IMAGE_URI_KEY, this.imageUri);
         }
-
+     LOG.d(LOG_TAG, "imageUri: " ); 
+           LOG.d(LOG_TAG, this.imageUri); 
         if (this.imageFilePath != null) {
             state.putString(IMAGE_FILE_PATH_KEY, this.imageFilePath);
         }
-
+     LOG.d(LOG_TAG, "imageFilePath: " ); 
+           LOG.d(LOG_TAG, this.imageFilePath); 
         return state;
     }
 
@@ -1375,22 +1381,31 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
         this.correctOrientation = state.getBoolean("correctOrientation");
         this.saveToPhotoAlbum = state.getBoolean("saveToPhotoAlbum");
 
+        LOG.d(LOG_TAG, "reStoring data on onRestoreStateForActivityResult");
         if (state.containsKey(CROPPED_URI_KEY)) {
             this.croppedUri = Uri.parse(state.getString(CROPPED_URI_KEY));
         }
+           LOG.d(LOG_TAG, "croppedUri: " ); 
+           LOG.d(LOG_TAG, this.croppedUri); 
 
         if (state.containsKey(CROPPED_FILE_PATH_KEY)) {
             this.croppedFilePath = Uri.parse(state.getString(CROPPED_FILE_PATH_KEY));
         }
+           LOG.d(LOG_TAG, "croppedFilePath: " ); 
+           LOG.d(LOG_TAG, this.croppedFilePath); 
 
         if (state.containsKey(IMAGE_URI_KEY)) {
             //I have no idea what type of URI is being passed in
             this.imageUri = Uri.parse(state.getString(IMAGE_URI_KEY));
         }
+           LOG.d(LOG_TAG, "imageUri: " ); 
+           LOG.d(LOG_TAG, this.imageUri); 
 
         if (state.containsKey(IMAGE_FILE_PATH_KEY)) {
            this.imageFilePath = state.getString(IMAGE_FILE_PATH_KEY);
         }
+           LOG.d(LOG_TAG, "imageFilePath: " ); 
+           LOG.d(LOG_TAG, this.imageFilePath); 
 
         this.callbackContext = callbackContext;
     }
