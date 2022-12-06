@@ -1385,32 +1385,36 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
         this.correctOrientation = state.getBoolean("correctOrientation");
         this.saveToPhotoAlbum = state.getBoolean("saveToPhotoAlbum");
 
+        
         LOG.d(LOG_TAG, "reStoring data on onRestoreStateForActivityResult");
         if (state.containsKey(CROPPED_URI_KEY)) {
             this.croppedUri = Uri.parse(state.getString(CROPPED_URI_KEY));
+              LOG.d(LOG_TAG, "croppedUri: " ); 
+           LOG.d(LOG_TAG, state.getString(CROPPED_URI_KEY)); 
         }
-           LOG.d(LOG_TAG, "croppedUri: " ); 
-           LOG.d(LOG_TAG, this.croppedUri); 
+         
 
         if (state.containsKey(CROPPED_FILE_PATH_KEY)) {
-            this.croppedFilePath = Uri.parse(state.getString(CROPPED_FILE_PATH_KEY));
+            this.croppedFilePath = state.getString(CROPPED_FILE_PATH_KEY);
+              LOG.d(LOG_TAG, "croppedFilePath: " ); 
+           LOG.d(LOG_TAG,state.getString(CROPPED_FILE_PATH_KEY)); 
         }
-           LOG.d(LOG_TAG, "croppedFilePath: " ); 
-           LOG.d(LOG_TAG, this.croppedFilePath); 
+         
 
         if (state.containsKey(IMAGE_URI_KEY)) {
             //I have no idea what type of URI is being passed in
             this.imageUri = Uri.parse(state.getString(IMAGE_URI_KEY));
+             LOG.d(LOG_TAG, "imageUri: " ); 
+           LOG.d(LOG_TAG, state.getString(IMAGE_URI_KEY)); 
         }
-           LOG.d(LOG_TAG, "imageUri: " ); 
-           LOG.d(LOG_TAG, this.imageUri); 
+          
 
         if (state.containsKey(IMAGE_FILE_PATH_KEY)) {
            this.imageFilePath = state.getString(IMAGE_FILE_PATH_KEY);
-        }
            LOG.d(LOG_TAG, "imageFilePath: " ); 
-           LOG.d(LOG_TAG, this.imageFilePath); 
-
+           LOG.d(LOG_TAG, state.getString(IMAGE_FILE_PATH_KEY));
+        }
+            
         this.callbackContext = callbackContext;
     }
 }
