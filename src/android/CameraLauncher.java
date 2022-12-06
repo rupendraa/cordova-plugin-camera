@@ -1346,7 +1346,7 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
        
          LOG.d(LOG_TAG, "Storing data on onSaveInstanceState");
         if (this.croppedUri != null) {
-            state.putString(CROPPED_URI_KEY, this.croppedUri);
+            state.putString(CROPPED_URI_KEY,  String.valueOf(this.croppedUri));
         }
            LOG.d(LOG_TAG, "croppedUri: " ); 
            LOG.d(LOG_TAG, this.croppedUri); 
@@ -1356,7 +1356,7 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
      LOG.d(LOG_TAG, "croppedFilePath: " ); 
            LOG.d(LOG_TAG, this.croppedFilePath); 
         if (this.imageUri != null) {
-            state.putString(IMAGE_URI_KEY, this.imageUri);
+            state.putString(IMAGE_URI_KEY, String.valueOf(this.imageUri));
         }
      LOG.d(LOG_TAG, "imageUri: " ); 
            LOG.d(LOG_TAG, this.imageUri); 
