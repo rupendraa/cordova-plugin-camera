@@ -1347,25 +1347,29 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
          LOG.d(LOG_TAG, "Storing data on onSaveInstanceState");
         if (this.croppedUri != null) {
             state.putString(CROPPED_URI_KEY,  String.valueOf(this.croppedUri));
+             LOG.d(LOG_TAG, "croppedUri: " ); 
+           LOG.d(LOG_TAG,  String.valueOf(this.croppedUri)); 
         }
-           LOG.d(LOG_TAG, "croppedUri: " ); 
-           LOG.d(LOG_TAG, this.croppedUri); 
+          
         if (this.croppedFilePath != null) {
             state.putString(CROPPED_FILE_PATH_KEY, this.croppedFilePath);
-        }
-     LOG.d(LOG_TAG, "croppedFilePath: " ); 
+             LOG.d(LOG_TAG, "croppedFilePath: " ); 
            LOG.d(LOG_TAG, this.croppedFilePath); 
+        }
+    
         if (this.imageUri != null) {
             state.putString(IMAGE_URI_KEY, String.valueOf(this.imageUri));
+             LOG.d(LOG_TAG, "imageUri: " ); 
+           LOG.d(LOG_TAG, String.valueOf(this.imageUri));
         }
-     LOG.d(LOG_TAG, "imageUri: " ); 
-           LOG.d(LOG_TAG, this.imageUri); 
+     
         if (this.imageFilePath != null) {
             state.putString(IMAGE_FILE_PATH_KEY, this.imageFilePath);
-        }
-     LOG.d(LOG_TAG, "imageFilePath: " ); 
+             LOG.d(LOG_TAG, "imageFilePath: " ); 
            LOG.d(LOG_TAG, this.imageFilePath); 
-        return state;
+        }
+  
+           return state;
     }
 
     public void onRestoreStateForActivityResult(Bundle state, CallbackContext callbackContext) {
